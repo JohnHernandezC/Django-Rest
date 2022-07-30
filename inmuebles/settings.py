@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inmueblesListApp',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'userApp'
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#estamos indicando que un usuario solo tendra acceso despues de haberse logueado 
+# REST_FRAMEWORK={
+#     'DEFAULT_PERMISSION_CLASSES':[
+#         'rest_framework.permissions.IsAuthenticated',
+#     ]
+# }
+REST_FRAMEWORK={
+    # 'DEFAULT_AUTHENTICATION_CLASSES':[
+    #     'rest_framework.authentication.BasicAuthentication',
+    # ]
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+    
+}
